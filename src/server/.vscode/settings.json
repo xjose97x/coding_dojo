@@ -1,0 +1,16 @@
+{
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#ffff33",
+        "activityBar.foreground": "#15202b",
+        "activityBar.inactiveForeground": "#15202b99",
+        "activityBarBadge.background": "#00bfbf",
+        "activityBarBadge.foreground": "#15202b",
+        "statusBar.background": "#ffff00",
+        "statusBarItem.hoverBackground": "#cccc00",
+        "statusBar.foreground": "#15202b"
+    },
+    "cSpell.words": [
+        "SENDGRID",
+        "idukay"
+    ]
+}
