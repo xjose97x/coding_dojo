@@ -1,4 +1,4 @@
 # coding dojo
 Coding dojo Idukay
 
-![](docs/conding_dojo.pdf?raw=true)
+[coding_dojo.pdf](http://github.io/levelap-dev/docs/coding_dojo.pdf)
