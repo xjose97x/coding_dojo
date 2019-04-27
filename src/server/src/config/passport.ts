@@ -36,32 +36,3 @@ passport.use(new LocalStrategy({ usernameField: "email" }, (email, password, don
     });
   });
 }));
-
-
-/**
- * OAuth Strategy Overview
- *
- * - User is already logged in.
- *   - Check if there is an existing account with a provider id.
- *     - If there is, return an error message. (Account merging not supported)
- *     - Else link new OAuth account with currently logged-in user.
- * - User is not logged in.
- *   - Check if it's a returning user.
- *     - If returning user, sign in and we are done.
- *     - Else check if there is an existing account with user's email.
- *       - If there is, return an error message.
- *       - Else create a new account.
- */
-
-/**
- * Authorization Required middleware.
- */
-export let isAuthorized = (req: Request, res: Response, next: NextFunction) => {
-  const provider = req.path.split("/").slice(-1)[0];
-
-  if (_.find(req.user.tokens, { kind: provider })) {
-    next();
-  } else {
-    res.redirect(`/auth/${provider}`);
-  }
-};

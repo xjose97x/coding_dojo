@@ -14,6 +14,7 @@ dotenv.config({ path: ".env.example" });
 
 // Controllers (route handlers)
 import * as userController from "./controllers/user";
+import * as roomController from "./controllers/room";
 
 // Create Express server
 const app = express();
@@ -50,10 +51,13 @@ const auth = jwt({
 /**
  * Primary app routes.
  */
-app.post("/login", userController.postLogin);
-app.post("/signup", userController.postSignup);
 app.get("/", auth, (req, res, next) => {
   res.send("HELLO WORLD");
 });
+app.post("/login", userController.postLogin);
+app.post("/signup", userController.postSignup);
+app.get("/room", auth, roomController.getAllRooms);
+app.post("/room", auth, roomController.postRoom);
+app.get("/room/:id", auth, roomController.getRoomByID);
 
 export default app;
