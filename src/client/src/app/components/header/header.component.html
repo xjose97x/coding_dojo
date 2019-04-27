@@ -5,7 +5,6 @@
     <span>Scrum Service</span>
   </a>
   <ng-container *ngIf="loggedIn">
-    <a mat-button class="docs-navbar-hide-small docs-button" routerLink="/">Home</a>
     <a mat-button class="docs-navbar-hide-small docs-button" routerLink="/rooms">Rooms</a>
     <a mat-button class="docs-navbar-hide-small docs-button" (click)="logout()">Log out</a>
     <span>{{email}}</span>
@@ -19,12 +18,10 @@
   <div class="flex-spacer"></div>
   <a mat-icon-button class="docs-button docs-navbar-show-small" href="https://github.com/angular/components"
     aria-label="GitHub Repository">
-    <img class="docs-angular-logo" src="../../../assets/img/homepage/github-circle-white-transparent.svg" alt="angular">
   </a>
 </nav>
 <nav class="docs-navbar docs-navbar-show-small">
   <ng-container *ngIf="loggedIn">
-    <a mat-button class="docs-navbar-link" routerLink="/">Home</a>
     <a mat-button class="docs-navbar-link" routerLink="/rooms">Rooms</a>
     <a mat-button class="docs-navbar-link" (click)="logout()">Log out</a>
     <span>{{email}}</span>
