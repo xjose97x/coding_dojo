@@ -1,6 +1,11 @@
 <a routerLink="create">Create Room</a>
 
-<div *ngFor="let room of rooms">
-
-  {{room | json}}
-</div>
+<article *ngFor="let room of rooms">
+  <div>Name: {{room.name}}</div>
+  <div>Creator: {{room.creator.email}}</div>
+  <div>Members:
+    <ol>
+      <li *ngFor="let member of room.members">{{member.email}}</li>
+    </ol>
+  </div>
+</article>
