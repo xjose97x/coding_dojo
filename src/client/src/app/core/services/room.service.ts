@@ -10,8 +10,8 @@ export class RoomService {
 
   constructor(private http: HttpClient) { }
 
-  createRoom(name: string) {
-    return this.http.post(`${environment.backendEndpoint}/room`, {name})
+  createRoom(name: string, members: string[]) {
+    return this.http.post(`${environment.backendEndpoint}/room`, {name, members})
       .pipe(
         catchError((err: HttpErrorResponse) => {
           return throwError(err.error);

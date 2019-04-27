@@ -1,3 +1,28 @@
-<p>
-  create works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-6 mx-auto my-5">
+      <h2 class="text-center">Create Room</h2>
+      <form [formGroup]="createRoomForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group">
+          <mat-form-field class="w-100">
+            <input matInput placeholder="Room Name" formControlName="name" autofocus>
+            <mat-error *ngIf="f.name?.hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="w-100">
+            <input multiple matInput type="email" placeholder="Email addresses separated by commas" formControlName="members">
+            <mat-error *ngIf="f.members?.hasError('required')">
+              Members are required
+            </mat-error>
+          </mat-form-field>
+          <div class="row">
+            <div class="col-12 col-lg-4">
+              <button [disabled]="!createRoomForm.valid" appButtonConfirm>Create Room</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

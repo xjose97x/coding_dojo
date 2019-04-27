@@ -13,7 +13,6 @@ import { MatInputModule } from '@angular/material/input';
     AuthRoutingModule,
     ReactiveFormsModule,
     MatInputModule
-
   ],
   declarations: [AuthComponent, SignupComponent, LoginComponent]
 })
