@@ -11,6 +11,7 @@ import { ShellComponent } from './components/shell/shell.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ToastrModule } from 'ngx-toastr';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
     ToastrModule.forRoot({ closeButton: true, progressBar: true, positionClass: 'toast-bottom-right' }),
     CoreModule.forRoot(),
     NgxsModule.forRoot([

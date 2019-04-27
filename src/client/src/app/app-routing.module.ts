@@ -1,5 +1,6 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { ShellComponent } from './components/shell/shell.component';
+import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {
@@ -12,3 +13,9 @@ const routes: Routes = [
     loadChildren: './pages/auth/auth.module#AuthModule'
   }
 ];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

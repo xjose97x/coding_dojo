@@ -61,3 +61,11 @@
     margin: 0;
   }
 }
+
+:host {
+  color: #ffffff;
+
+  .docs-navbar, .docs-navbar-header {
+    background: #438eb9;
+  }
+}

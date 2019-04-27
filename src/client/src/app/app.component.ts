@@ -3,6 +3,7 @@ import { Select } from '@ngxs/store';
 import { AppState } from './core/state/app.state';
 import { Observable, Subscription } from 'rxjs';
 import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,11 @@ export class AppComponent {
 
   routerSubscription: Subscription;
 
-  constructor(private router: Router, private cd: ChangeDetectorRef) {
+  constructor(
+    private router: Router,
+    private cd: ChangeDetectorRef,
+    private toastService: ToastrService
+    ) {
     this.routerSubscription = this.router.events
     .subscribe(
       (event: Event) => {
