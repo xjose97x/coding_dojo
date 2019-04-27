@@ -1,6 +1,3 @@
-# Coding dojo
-Coding dojo Idukay
-
 # Criterios de evaluación
 ![](docs/evaluacion1.png?raw=true)
 ![](docs/evaluacion2.png?raw=true)
