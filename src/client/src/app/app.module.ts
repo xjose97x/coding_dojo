@@ -4,6 +4,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsModule } from '@ngxs/store';
 import { AppState } from './core/state/app.state';
 import { environment } from 'src/environments/environment';
@@ -28,9 +31,22 @@ import { AppRoutingModule } from './app-routing.module';
     CoreModule.forRoot(),
     NgxsModule.forRoot([
       AppState
-    ], { developmentMode: !environment.production })
+    ], { developmentMode: !environment.production }),
+    NgxsStoragePluginModule.forRoot({
+      key: ['app.token'],
+      deserialize: deserializeState
+    }),
+    !environment.production ? [NgxsReduxDevtoolsPluginModule.forRoot(), NgxsLoggerPluginModule.forRoot()] : [],
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function deserializeState(obj: string) {
+  try {
+    return JSON.parse(obj);
+  } catch (e) {
+    return undefined;
+  }
+}

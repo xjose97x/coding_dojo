@@ -1,3 +1,46 @@
-<p>
-  signup works!
-</p>
+<div class="container registration-form">
+  <div class="row">
+    <div class="col-md-10 col-lg-6 mx-auto my-5">
+      <h2 class="text-center">Create Your Account</h2>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput trim placeholder="E-mail" formControlName="email" autofocus>
+            <mat-error *ngIf="f.email?.hasError('email') && !f.email?.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="f.email?.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput appPasswordToggle type="password" placeholder="Choose Password" formControlName="password">
+            <mat-error *ngIf="f.password?.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput appPasswordToggle type="password" placeholder="Confirm Password" formControlName="passwordConfirm">
+            <mat-error *ngIf="f.passwordConfirm?.hasError('required')">
+              This field is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="f.passwordConfirm?.hasError('notEquivalent')">
+              Passwords do not match
+            </mat-error>
+          </mat-form-field>
+          <div class="row">
+            <div class="col-12 mx-auto">
+              <div class="text-center">
+                <button [disabled]="!registerForm.valid" appButtonConfirm>Create Account</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <br>
+      <div class="text-center">
+        <a routerLink="/auth/login" class="log-link">Already have an account?</a>
+      </div>
+    </div>
+  </div>
+</div>

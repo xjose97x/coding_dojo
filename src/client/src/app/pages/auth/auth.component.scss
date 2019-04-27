@@ -1,0 +1,91 @@
+@import "~bootstrap/scss/bootstrap-grid.scss";
+@import "~bootstrap/scss/bootstrap-grid.scss";
+
+/deep/ .registration-form {
+  margin-top: -8.5rem;
+  padding-top: 8rem;
+  label {
+    display: none;
+  }
+  h2 {
+    color: #fff;
+    font-family: "Nunito Sans";
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+    font-size: 2.25rem;
+    @include media-breakpoint-down(md) {
+      font-size: 1.675rem;
+    }
+  }
+  .text-center {
+    margin-left: 3.375rem;
+    margin-right: 3.375rem;
+    @include media-breakpoint-down(md) {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+    }
+  }
+  .log-link {
+    display: inline-block;
+    color: #fff;
+    font-family: "Nunito Sans";
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.03rem;
+    // margin-right: 0.335rem;
+    // margin-left: 0.335rem;
+    padding: 0;
+    margin-bottom: 0.75rem;
+    @include media-breakpoint-down(xs) {
+      text-align: center;
+      display: block;
+    }
+  }
+  .dot {
+    color: #fff;
+    opacity: 0;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 3.484rem 2.68rem;
+    width: 100%;
+    box-shadow: 0 0.335rem 0.67rem rgba(0, 0, 0, 0.15) !important;
+    border-radius: 0.5rem;
+    margin-bottom: 2.25rem;
+    @include media-breakpoint-down(md) {
+      padding: 2.484rem 1.68rem;
+    }
+    input::-webkit-input-placeholder {
+      opacity: 0.5;
+      font-family: inherit;
+      font-size: inherit;
+    }
+    .keep-signed-in {
+      display: inline-block;
+      font-size: 0.875rem;
+      margin-left: 0.335rem;
+      color: #303864;
+      padding-left: 2.187rem;
+    }
+    input[type="checkbox"] {
+      height: 1rem;
+      width: 1rem;
+      border-radius: 0;
+    }
+    .form-element {
+      margin-top: 0.6rem;
+      margin-bottom: 1rem;
+      a {
+        font-weight: bold;
+        color: #000000;
+        text-decoration: none;
+      }
+    }
+  }
+  .form-inline {
+    display: flex;
+    justify-content: space-between;
+  }
+}
