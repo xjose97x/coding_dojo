@@ -9,8 +9,14 @@ export let postRoom = async (req: Request, res: Response, next: NextFunction) =>
         return res.status(400).send(errors);
     }
 
-    const emails: string[] = req.body.emails;
-    const users = await User.find({ email: { "$in": emails } });
+    const emails: string[] = req.body.members.split(",");
+
+    let users: any[] = [];
+
+    try {
+        users = await User.find({ email: { "$in": emails } });
+    } catch (_ignore) {}
+
     if (users.length < emails.length) {
         return res.status(400).send("An email is invalid");
     }

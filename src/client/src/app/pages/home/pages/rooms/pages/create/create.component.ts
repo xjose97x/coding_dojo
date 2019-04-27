@@ -5,7 +5,7 @@ import { RoomService } from 'src/app/core/services/room.service';
 import { ToastrService } from 'ngx-toastr';
 import { Store } from '@ngxs/store';
 import { ToggleLoading } from 'src/app/core/state/app.state';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -19,7 +19,8 @@ export class CreateComponent {
     private roomService: RoomService,
     private toastService: ToastrService,
     private store: Store,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   createRoomForm = this.fb.group({
@@ -39,7 +40,7 @@ export class CreateComponent {
       _success => {
         this.toastService.success('Room created successfully');
         this.store.dispatch(new ToggleLoading()).subscribe();
-        this.router.navigate(['../']);
+        this.router.navigate(['../'], { relativeTo: this.route });
       },
       (error: string) => {
         this.store.dispatch(new ToggleLoading()).subscribe();
