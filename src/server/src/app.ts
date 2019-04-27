@@ -59,5 +59,6 @@ app.post("/signup", userController.postSignup);
 app.get("/room", auth, roomController.getAllRooms);
 app.post("/room", auth, roomController.postRoom);
 app.get("/room/:id", auth, roomController.getRoomByID);
+app.post("/room/:id/invite", auth, roomController.inviteMembers);
 
 export default app;
