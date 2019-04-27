@@ -5,8 +5,8 @@
     <span>Scrum Service</span>
   </a>
   <ng-container *ngIf="loggedIn">
-    <a mat-button class="docs-navbar-hide-small docs-button">Home</a>
-    <a mat-button class="docs-navbar-hide-small docs-button">Rooms</a>
+    <a mat-button class="docs-navbar-hide-small docs-button" routerLink="/">Home</a>
+    <a mat-button class="docs-navbar-hide-small docs-button" routerLink="/rooms">Rooms</a>
     <a mat-button class="docs-navbar-hide-small docs-button" (click)="logout()">Log out</a>
   </ng-container>
   <ng-container *ngIf="!loggedIn">
@@ -23,8 +23,8 @@
 </nav>
 <nav class="docs-navbar docs-navbar-show-small">
   <ng-container *ngIf="loggedIn">
-    <a mat-button class="docs-navbar-link">Home</a>
-    <a mat-button class="docs-navbar-link">Rooms</a>
+    <a mat-button class="docs-navbar-link" routerLink="/">Home</a>
+    <a mat-button class="docs-navbar-link" routerLink="/rooms">Rooms</a>
     <a mat-button class="docs-navbar-link" (click)="logout()">Log out</a>
   </ng-container>
   <ng-container *ngIf="!loggedIn">
