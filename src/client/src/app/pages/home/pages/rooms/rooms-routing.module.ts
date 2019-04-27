@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home.component';
+import { RoomsComponent } from './rooms.component';
+import { CreateComponent } from './pages/create/create.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: RoomsComponent,
   },
   {
-    path: 'rooms',
-    loadChildren: './pages/rooms/rooms.module#RoomsModule'
+    path: 'create',
+    component: CreateComponent
   }
 ];
 
@@ -17,5 +18,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule {
+export class RoomsRoutingModule {
 }

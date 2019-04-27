@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class ShellComponent {
 
   @Select(AppState.token) token$: Observable<string>;
+  @Select(AppState.email) email$: Observable<string>;
 
   constructor(private store: Store, private router: Router) { }
 

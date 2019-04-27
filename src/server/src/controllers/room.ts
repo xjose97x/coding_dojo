@@ -20,7 +20,7 @@ export let postRoom = (req: Request, res: Response, next: NextFunction) => {
 };
 
 export let getAllRooms = async (req: Request, res: Response, next: NextFunction) => {
-    const rooms = await Room.find().populate("creator").populate("members");
+    const rooms = await Room.find().populate("creator", "email").populate("members", "email");
     if (!rooms) {
         return res.status(404);
     }

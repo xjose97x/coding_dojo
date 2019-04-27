@@ -1,6 +1,8 @@
 import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { flatMap, tap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 export interface IAppStateModel {
   token: string;
@@ -34,7 +36,10 @@ export class AppState {
   @Selector() static token(state: IAppStateModel) { return state.token; }
   @Selector() static loading(state: IAppStateModel) { return state.loading; }
 
-
+  @Selector() static email(state: IAppStateModel) {
+    const jwtHelper = new JwtHelperService();
+    return jwtHelper.decodeToken(state.token).email;
+  }
   constructor(private authService: AuthService) { }
 
   @Action(ToggleLoading)

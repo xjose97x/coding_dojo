@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Room } from 'src/app/shared/models/room.model';
 
 @Injectable()
 export class RoomService {
@@ -19,7 +20,7 @@ export class RoomService {
   }
 
   getAllRooms() {
-    return this.http.get(`${environment.backendEndpoint}/room`)
+    return this.http.get<Room[]>(`${environment.backendEndpoint}/room`)
       .pipe(
         catchError((err: HttpErrorResponse) => {
           return throwError(err.error);
@@ -28,7 +29,7 @@ export class RoomService {
   }
 
   getRoomById(id: string) {
-    return this.http.get(`${environment.backendEndpoint}/room/${id}`)
+    return this.http.get<Room>(`${environment.backendEndpoint}/room/${id}`)
     .pipe(
       catchError((err: HttpErrorResponse) => {
         return throwError(err.error);
