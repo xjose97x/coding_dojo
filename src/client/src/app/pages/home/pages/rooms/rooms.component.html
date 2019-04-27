@@ -8,8 +8,11 @@
       <li *ngFor="let member of room.members">{{member.email}}</li>
     </ol>
   </div>
-  <ng-container *ngIf="canEdit(room)">
+  <div *ngIf="canEdit(room)">
     You are the creator of this room.
-    <button>Add Members</button>
-  </ng-container>
+  </div>
+  <div *ngIf="canJoin(room)">
+      You can join this room.
+      <button [routerLink]="room._id">Join room</button>
+  </div>
 </article>

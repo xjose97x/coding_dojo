@@ -5,6 +5,7 @@ import { CreateComponent } from './pages/create/create.component';
 import { RoomsRoutingModule } from './rooms-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { ArenaComponent } from './pages/arena/arena.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule,
     RoomsRoutingModule
   ],
-  declarations: [ RoomsComponent, CreateComponent ]
+  declarations: [ RoomsComponent, CreateComponent, ArenaComponent ]
 })
 export class RoomsModule { }

@@ -25,4 +25,15 @@ export class RoomsComponent implements OnInit {
     return this.store.selectSnapshot<string>(AppState.email) === room.creator.email;
   }
 
+  canJoin(room: Room): boolean {
+    const email = this.store.selectSnapshot<string>(AppState.email);
+    if (email === room.creator.email) {
+      return true;
+    }
+    if (room.members.some(e => e.email === email)) {
+      return true;
+    }
+
+    return false;
+  }
 }
