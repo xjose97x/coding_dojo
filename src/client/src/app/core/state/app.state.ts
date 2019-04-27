@@ -22,6 +22,10 @@ export class SignUp {
   constructor(public email: string, public password: string) { }
 }
 
+export class Logout {
+  static readonly type = '[Auth] Logout';
+}
+
 @State<IAppStateModel>({
   name: 'app'
 })

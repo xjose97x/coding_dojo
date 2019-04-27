@@ -7,7 +7,7 @@ import { CoreModule } from './core/core.module';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
-import { NgxsModule } from '@ngxs/store';
+import { NgxsModule, NGXS_PLUGINS } from '@ngxs/store';
 import { AppState } from './core/state/app.state';
 import { environment } from 'src/environments/environment';
 import { ShellComponent } from './components/shell/shell.component';
@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
+import { logoutPlugin } from './core/state/logout.plugin';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,13 @@ import { AppRoutingModule } from './app-routing.module';
     }),
     !environment.production ? [NgxsReduxDevtoolsPluginModule.forRoot(), NgxsLoggerPluginModule.forRoot()] : [],
   ],
-  providers: [],
+  providers: [
+    {
+      provide: NGXS_PLUGINS,
+      useValue: logoutPlugin,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
