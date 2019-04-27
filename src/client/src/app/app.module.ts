@@ -8,15 +8,21 @@ import { NgxsModule } from '@ngxs/store';
 import { AppState } from './core/state/app.state';
 import { environment } from 'src/environments/environment';
 import { ShellComponent } from './components/shell/shell.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShellComponent
+    ShellComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    ToastrModule.forRoot({ closeButton: true, progressBar: true, positionClass: 'toast-bottom-right' }),
     CoreModule.forRoot(),
     NgxsModule.forRoot([
       AppState

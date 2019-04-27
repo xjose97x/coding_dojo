@@ -25,6 +25,7 @@
     "@ngxs/store": "^3.4.3",
     "core-js": "^2.5.4",
     "http-status-codes": "^1.3.2",
+    "ngx-toastr": "^10.0.2",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
   },
