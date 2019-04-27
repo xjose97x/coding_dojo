@@ -1,4 +1,4 @@
-# coding_dojo
+# coding dojo
 Coding dojo Idukay
 
-![](docs/condig_dojo.pdf?raw=true)
+![](docs/conding_dojo.pdf?raw=true)
