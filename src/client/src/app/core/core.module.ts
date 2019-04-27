@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { RoomService } from './services/room.service';
 
 export const httpInterceptorProviders = [
   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
@@ -18,6 +19,7 @@ export const httpInterceptorProviders = [
   ],
   providers: [
     AuthService,
+    RoomService,
     httpInterceptorProviders
   ],
   declarations: []

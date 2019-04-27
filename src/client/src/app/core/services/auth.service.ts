@@ -4,6 +4,7 @@ import { environment } from '../../../environments/environment';
 import * as HttpStatusCode from 'http-status-codes';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+
 @Injectable()
 export class AuthService {
 
