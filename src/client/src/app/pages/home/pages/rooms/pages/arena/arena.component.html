@@ -1,3 +1,20 @@
-<p>
-  arena works!
-</p>
+<ng-container *ngIf="room">
+  <p>
+    You just joined the room {{room.name}}
+  </p>
+  <div>Members:
+    <ol>
+      <li *ngFor="let member of room.members">{{member.email}}</li>
+    </ol>
+  </div>
+
+  <ng-container *ngIf="isCreator()">
+    You are the creator of the room.
+    <button (click)="startMeeting()">Start stand-up meeting</button>
+  </ng-container>
+  <ng-container *ngIf="!isCreator()">
+    You are not the creator of the room.
+    Please wait for the creator to start the meeting.
+  </ng-container>
+
+</ng-container>
