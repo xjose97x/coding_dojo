@@ -8,6 +8,7 @@ import expressValidator from "express-validator";
 import bluebird from "bluebird";
 import { MONGODB_URI, JWT_SECRET } from "./util/secrets";
 import jwt from "express-jwt";
+import cors from "cors";
 
 // Load environment variables from .env file, where API keys and passwords are configured
 dotenv.config({ path: ".env.example" });
@@ -32,6 +33,7 @@ mongoose.connect(mongoUrl, {useMongoClient: true}).then(
 // Express configuration
 app.set("port", process.env.PORT || 3000);
 app.use(compression());
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());

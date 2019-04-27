@@ -6,11 +6,12 @@ const routes: Routes = [
   {
     path: '',
     component: ShellComponent,
-    children: []
-  },
-  {
-    path: 'auth',
-    loadChildren: './pages/auth/auth.module#AuthModule'
+    children: [
+      {
+        path: 'auth',
+        loadChildren: './pages/auth/auth.module#AuthModule'
+      }
+    ]
   }
 ];
 

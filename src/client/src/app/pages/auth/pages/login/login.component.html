@@ -1,3 +1,41 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-lg-6 mx-auto my-5">
+      <h2 class="text-center">Log in to Instar Wallet</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="form-group">
+          <mat-form-field>
+            <input matInput trim placeholder="E-mail" formControlName="email" autofocus>
+            <mat-error *ngIf="f.email?.hasError('email') && !f.email?.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="f.email?.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Password" formControlName="password" type="password" appPasswordToggle>
+            <mat-error *ngIf="f.password?.hasError('required')">
+                Password is required
+            </mat-error>
+          </mat-form-field>
+          <div class="row">
+            <div class="col-12 col-lg-7 d-flex align-items-center mb-3 mb-md-0">
+              <input type="checkbox" id="keep-logged-in">
+              <label class="keep-signed-in" for="keep-logged-in">Keep me logged in this computer</label>
+            </div>
+            <div class="col-12 col-lg-4">
+              <button [disabled]="!loginForm.valid" appButtonConfirm>Log in</button>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="text-center row">
+        <a routerLink="../forgot" class="log-link col-5 col-lg-4">Forgot Password?</a>
+        <a routerLink="/signup" class="log-link col-7 col-lg-4">Don't have an account?</a>
+        <a target="_blank" href="http://insights.network/privacy" class="log-link col-12 col-lg-4">Privacy Policy</a>
+        <a href="#" class="log-link col-12 col-lg-12">Have an issue with 2-factor authentication?</a>
+      </div>
+    </div>
+  </div>
+</div>
