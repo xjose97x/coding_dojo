@@ -1,4 +1,4 @@
 # coding dojo
 Coding dojo Idukay
 
-[Readme](http://levelap-dev.github.io/codong_dojo/docs/coding_dojo.pdf)
+[Ver presentación con ejercicio](https://drive.google.com/file/d/1U7YjijGJXhSNHunu_xpFpp_80_kjJeKa/view?usp=sharing)
